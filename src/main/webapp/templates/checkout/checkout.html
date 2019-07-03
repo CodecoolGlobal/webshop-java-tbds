@@ -38,26 +38,30 @@
     <div class="card">
         <form>
             <table>
-                <td>
-
-                </td>
+                <tr>
+                    <td>Name:</td>
+                    <td>Email:</td>
+                    <td>Phone number:</td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="name"></td>
+                    <td><input type="text" name="email"><br></td>
+                    <td><input type="number" name="phone_number"><br></td>
+                </tr>
             </table>
-            Name: <input type="text" name="name"><br>
-            Email: <input type="text" name="email"><br>
-            Phone number: <input type="number" name="phone_number"><br>
             <div class="container">
                 <h3>Billing Address</h3>
-                Country: <input type="text" name="country">
-                City: <input type="text" name="city">
-                Zipcode: <input type="number" name="zipcode">
-                Address: <input type="text" name="address">
+                Country: <input type="text" name="billing_country">
+                City: <input type="text" name="billing_city">
+                Zipcode: <input type="number" name="billing_zipcode">
+                Address: <input type="text" name="billing_address">
             </div>
             <div class="container">
                 <h3>Shipping Address</h3>
-                Country: <input type="text" name="country">
-                City: <input type="text" name="city">
-                Zipcode: <input type="number" name="zipcode">
-                Address: <input type="text" name="address">
+                Country: <input type="text" name="shipping_country">
+                City: <input type="text" name="shipping_city">
+                Zipcode: <input type="number" name="shipping_zipcode">
+                Address: <input type="text" name="shipping_address">
             </div>
             <br>
             <input type="submit" value="Submit">
