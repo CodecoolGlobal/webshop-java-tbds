@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,6 +35,10 @@ public class ProductController extends HttpServlet {
         // params.put("category", productCategoryDataStore.find(1));
         // params.put("products", productDataStore.getBy(productCategoryDataStore.find(1)));
         // context.setVariables(params);
+
+
+        System.out.println("name:"+ req.getParameter("add") + " price: " + req.getParameter("price"));
+
         engine.process("product/index.html", context, resp.getWriter());
     }
 

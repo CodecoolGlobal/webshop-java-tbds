@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+</head>
+<body>
+<div class="jumbotron text-center">
+    <h1>Cart</h1>
+</div>
+<div class="jumbotron text-center"><table>
+    <tr>
+        <th>Name</th>
+        <th></th>
+        <th>Quanity</th>
+        <th></th>
+        <th>Price</th>
+    </tr>
+    <tr><form>
+        <td th:text="${test.name}"></td>
+        <td><input type="submit" value="+"></td>
+        <td><input type="text" th:value="${test.quanity}"></td>
+        <td><input type="submit" value="-"></td></td>
+        <td th:text="${test.price} +  USD"></td>
+    </form></tr>
+</table></div>
+<h2>Total:</h2>
+<form><input type="submit" value="Order"></form>
+</body>
+</html>
