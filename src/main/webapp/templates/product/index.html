@@ -39,6 +39,22 @@
         <strong th:text="${category.name}">Category Title</strong>
     </div>
 
+    <div>
+        <form action="index.html">
+            <select name="category" id="category">
+                <option value="electronic-devicies">Electronic devicies</option>
+                <option value="calendars">Calendars</option>
+                <option value="puppies">Puppies</option>
+            </select>
+            <select name="supplier" id="supplier">
+                <option value="lenovo">Lenovo</option>
+                <option value="amazon"></option>
+                <option value="kisszel-tunde">Puppies</option>
+            </select>
+        </form>
+
+    </div>
+
     <div id="products" class="row">
         <div class="col col-sm-12 col-md-6 col-lg-4" th:each="prod,iterStat : ${products}">
             <div class="card">
