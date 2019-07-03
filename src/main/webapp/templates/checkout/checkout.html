@@ -40,30 +40,33 @@
             <table>
                 <tr>
                     <td>Name:</td>
-                    <td>Email:</td>
-                    <td>Phone number:</td>
+                    <td><input type="text" name="name" required></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="name"></td>
-                    <td><input type="text" name="email"><br></td>
-                    <td><input type="number" name="phone_number"><br></td>
+                    <td>Email:</td>
+                    <td><input type="text" name="email" required></td>
+                </tr>
+                <tr>
+                    <td>Phone number:</td>
+                    <td><input type="number" name="phone_number" required></td>
                 </tr>
             </table>
             <div class="container">
                 <h3>Billing Address</h3>
-                Country: <input type="text" name="billing_country">
-                City: <input type="text" name="billing_city">
-                Zipcode: <input type="number" name="billing_zipcode">
-                Address: <input type="text" name="billing_address">
+                Country: <input type="text" name="billing_country" required>
+                City: <input type="text" name="billing_city" required>
+                Zipcode: <input type="number" name="billing_zipcode" required>
+                Address: <input type="text" name="billing_address" required>
             </div>
             <div class="container">
                 <h3>Shipping Address</h3>
-                Country: <input type="text" name="shipping_country">
-                City: <input type="text" name="shipping_city">
-                Zipcode: <input type="number" name="shipping_zipcode">
-                Address: <input type="text" name="shipping_address">
+                Country: <input type="text" name="shipping_country" required>
+                City: <input type="text" name="shipping_city" required>
+                Zipcode: <input type="number" name="shipping_zipcode" required>
+                Address: <input type="text" name="shipping_address" required>
             </div>
             <br>
+            <input type="hidden" value="submitted" name="submitted">
             <input type="submit" value="Submit">
         </form>
     </div>

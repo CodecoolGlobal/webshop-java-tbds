@@ -31,11 +31,11 @@ public class CheckoutController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         saveData(req, resp);
-
         TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(req.getServletContext());
         WebContext context = new WebContext(req, resp, req.getServletContext());
 
         engine.process("checkout/checkout.html", context, resp.getWriter());
+
     }
 
     @Override
@@ -53,18 +53,20 @@ public class CheckoutController extends HttpServlet {
         String billingCity = req.getParameter("billing_city");
         String billingZipcode = req.getParameter("billing_zipcode");
         String billingAddress = req.getParameter("billing_address");
-        user.setBillingAddress(billingCountry + " " + billingCity + " " + billingZipcode + " " + billingAddress);
+        user.setBillingAddress(billingCountry + " " + billingCity + " " + billingZipcode + " " + billingAddress); // todo: rename billing address
 
         String shippingCountry = req.getParameter("shipping_country");
         String shippingCity = req.getParameter("shipping_city");
         String shippingZipcode = req.getParameter("shipping_zipcode");
         String shippingAddress = req.getParameter("shipping_address");
-        user.setShippingAddress(shippingCountry + " " + shippingCity + " " + shippingZipcode + " " + shippingAddress);
-
-        System.out.println(user.getName());
-        System.out.println(user.getEmailAddress());
-        System.out.println(user.getPhoneNumber());
-        System.out.println(user.getBillingAddress());
-        System.out.println(user.getShippingAddress());
+        user.setShippingAddress(shippingCountry + " " + shippingCity + " " + shippingZipcode + " " + shippingAddress); // todo: rename shipping address
+        try {
+            if (req.getParameter("submitted").equals("submitted")) {
+                System.out.println("siker");
+                resp.sendRedirect(req.getContextPath() + "/pay");
+            }
+        } catch (Exception ignored) {
+            System.out.println("hiba");
+        }
     }
 }
