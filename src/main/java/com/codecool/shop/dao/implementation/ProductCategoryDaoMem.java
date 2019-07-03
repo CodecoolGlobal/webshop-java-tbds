@@ -44,4 +44,14 @@ public class ProductCategoryDaoMem implements ProductCategoryDao {
     public List<ProductCategory> getAll() {
         return data;
     }
+
+    @Override
+    public ProductCategory findByName(String categoryName) {
+        for (int i = 0; i < data.size(); i++) {
+            if (i == Integer.getInteger(categoryName)){
+               return data.get(i);
+            }
+        }
+        return null;
+    }
 }

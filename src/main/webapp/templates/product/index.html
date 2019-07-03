@@ -34,29 +34,26 @@
     <h1>Codecool Shop</h1>
 </div>
 
-<div class="container">
+<div>
+    <form action="/sort", method="get">
+        <select name="category" id="category">
+            <option value="default">Default</option>
+            <option value="tablet">tablet</option>
+        </select>
+        <select name="supplier" id="supplier">
+            <option value="default">Default</option>
+            <option value="lenovo">Lenovo</option>
+            <option value="amazon">Amazon</option>
+        </select>
+        <input type="button" value="Filter">
+    </form>
+
+</div>
+<!--<div class="container">
     <div class="card">
         <strong th:text="${category.name}">Category Title</strong>
-    </div>
+    </div>-->
 
-    <div>
-        <form action="index.html">
-            <select name="category" id="category">
-                <option value="default">Default</option>
-                <option value="electronic-devicies">Electronic devicies</option>
-                <option value="calendars">Calendars</option>
-                <option value="puppies">Puppies</option>
-            </select>
-            <select name="supplier" id="supplier">
-                <option value="default">Default</option>
-                <option value="lenovo">Lenovo</option>
-                <option value="amazon"></option>
-                <option value="kisszel-tunde">Puppies</option>
-            </select>
-            <input type="button" value="Filter">
-        </form>
-
-    </div>
 
     <div id="products" class="row">
         <div class="col col-sm-12 col-md-6 col-lg-4" th:each="prod,iterStat : ${products}">
