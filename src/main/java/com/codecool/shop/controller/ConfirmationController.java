@@ -31,7 +31,7 @@ public class ConfirmationController extends HttpServlet {
 
 
         final String username = "sirosborncox";
-        final String password = "Nagyalma123";
+        final String password = "Codecool oop";
 
         Properties prop = new Properties();
         prop.put("mail.smtp.host", "smtp.gmail.com");
