@@ -33,15 +33,16 @@ public class ProductController extends HttpServlet {
 
         ProductCategory productCategory = null;
 
-        if (categoryName==null){
+        if (categoryName == null) {
             productCategory = productCategoryDataStore.find(1);
-        }else {
+        } else {
+            System.out.println(categoryName);
             productCategory = productCategoryDataStore.findByName(categoryName);
         }
 
         Supplier supplier = null;
 
-        if (supplierName==null){
+        if (supplierName == null) {
             supplier = SupplierDaoMem.getInstance().find(1);
         } else {
             supplier = SupplierDaoMem.getInstance().findByName(supplierName);
@@ -49,7 +50,6 @@ public class ProductController extends HttpServlet {
 
         TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(req.getServletContext());
         WebContext context = new WebContext(req, resp, req.getServletContext());
-        //context.setVariable("category", productCategoryDataStore.find(1));
         context.setVariable("products", productDataStore.getBy(productCategory));
         context.setVariable("dropDownCategories", productCategoryDataStore.getAll());
         context.setVariable("dropDownSupplier", SupplierDaoMem.getInstance().getAll());

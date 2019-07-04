@@ -35,18 +35,18 @@
 </div>
 
 <div>
-    <form action="/sort", method="get">
+    <form>
         <select name="category" id="category" >
             <div th:each="category,iterStat : ${dropDownCategories}">
-                <option value="default" th:text="${category.getName()}"></option>
+                <option th:value="${category.getName()}" th:text="${category.getName()}"></option>
             </div>
         </select>
         <select name="supplier" id="supplier">
             <div th:each="supplier,iterStat : ${dropDownSupplier}">
-                <option value="default" th:text="${supplier.getName()}"></option>
+                <option th:value="${supplier.getName()}" th:text="${supplier.getName()}"></option>
             </div>
         </select>
-        <input type="button" value="Filter">
+        <input type="submit" value="Filter">
     </form>
 </div>
 <!--<div class="container">
