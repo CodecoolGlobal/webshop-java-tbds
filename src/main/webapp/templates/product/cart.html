@@ -17,11 +17,11 @@
         <th>Price</th>
     </tr>
     <tr><form>
-        <td th:text="${test.name}"></td>
+        <td text="{product.name}"></td>
         <td><input type="submit" value="+"></td>
-        <td><input type="text" th:value="${test.quanity}"></td>
+        <td><input type="text" value="{product.quanity}"></td>
         <td><input type="submit" value="-"></td></td>
-        <td th:text="${test.price} +  USD"></td>
+        <td text="{cart.price} +  USD"></td>
     </form></tr>
 </table></div>
 <h2>Total:</h2>

@@ -6,18 +6,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Global {
-    private Global global = null;
-    private User user;
+    private static Global global = null;
+    private static User user;
     private Global(){}
     private List<Order>orders = new ArrayList<>();
 
     public User getUserById(){
-        return this.user;
+        return user;
     }
-    public Global getInstance(){
+    public static Global getInstance(){
         if(global== null){
-            this.global = new Global();
-            this.user = new User();
+            global = new Global();
+            user = new User();
         }
         return global;
 
