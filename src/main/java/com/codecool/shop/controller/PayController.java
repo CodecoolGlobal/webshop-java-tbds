@@ -28,13 +28,13 @@ public class PayController extends HttpServlet {
         if(req.getParameter("paymethod").equals("paypal")){
             user.setPaypalUsername(req.getParameter("username"));
             user.setPaypalPassword(req.getParameter("password"));
-            resp.sendRedirect(req.getContextPath() + "/confirm");
+            resp.sendRedirect(req.getContextPath() + "/confirmation");
         } else if (req.getParameter("paymethod").equals("creditcard")) {
             user.setCardNumber(req.getParameter("cardNumber"));
             user.setCardHolder(req.getParameter("cardHolder"));
             user.setExpirityDate(req.getParameter("expirityDate"));
             user.setCardCode(req.getParameter("code"));
-            resp.sendRedirect(req.getContextPath() + "/confirm");
+            resp.sendRedirect(req.getContextPath() + "/confirmation");
         }
 
     }
