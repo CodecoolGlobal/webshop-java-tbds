@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+</head>
+<body>
+<div class="jumbotron text-center">
+    <h1>Cart</h1>
+</div>
+<div class="jumbotron text-center"><table>
+    <tr>
+        <th>Name</th>
+        <th></th>
+        <th>Quanity</th>
+        <th></th>
+        <th>Price</th>
+    </tr>
+    <tr th:each="item,iterStat : ${cart.getProductList()}">
+        <td th:text="${item.getName()}"></td>
+        <td><input type="submit" value="-"></td>
+        <td th:text="${quanity.get(iterStat.index)}"></td>
+        <td><input type="submit" value="+"></td>
+        <td th:text="${item.getPrice()}"></td>
+    </tr>
+</table>
+<h2 th:text="${total}"></h2>
+<form><input type="submit" value="Order"></form>
+</div></body>
+</html>
