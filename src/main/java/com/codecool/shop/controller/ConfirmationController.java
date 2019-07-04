@@ -5,6 +5,11 @@ import com.codecool.shop.config.TemplateEngineUtil;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,8 +27,46 @@ import com.google.gson.JsonObject;
 
 @WebServlet(urlPatterns = {"/confirmation"})
 public class ConfirmationController extends HttpServlet {
-    private void sendEmail()
-    {
+    private void sendEmail() throws MessagingException {
+
+
+        final String username = "sirosborncox";
+        final String password = "Nagyalma123";
+
+        Properties prop = new Properties();
+        prop.put("mail.smtp.host", "smtp.gmail.com");
+        prop.put("mail.smtp.port", "465");
+        prop.put("mail.smtp.auth", "true");
+        prop.put("mail.smtp.socketFactory.port", "465");
+        prop.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+
+        Session session = Session.getInstance(prop,
+                new javax.mail.Authenticator() {
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication(username, password);
+                    }
+                });
+
+        try {
+
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress("sirosborncox@gmail.com"));
+            message.setRecipients(
+                    Message.RecipientType.TO,
+                    InternetAddress.parse("dbalazs1219@gmail.com")
+            );
+            message.setSubject("Testing Gmail SSL");
+            message.setText("Dear Mail Crawler,"
+                    + "\n\n Please do not spam my email!");
+
+            Transport.send(message);
+
+            System.out.println("Done");
+
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Email sent successfully");
 
     }
 
@@ -38,9 +81,6 @@ public class ConfirmationController extends HttpServlet {
 
             // Convert JSON to JsonElement, and later to String
             json = gsonIn.fromJson(reader, JsonElement.class);
-            String jsonInString = gsonIn.toJson(json);
-
-            System.out.println(jsonInString);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -57,7 +97,7 @@ public class ConfirmationController extends HttpServlet {
         }
         System.out.println("Saved order successfully to JSON....");
     }
-    private void doTheThing() throws IOException { // todo: rename function name
+    private void doTheThing() throws IOException, MessagingException { // todo: rename function name
         // create JSON file
         saveToJSON();
         // send email
