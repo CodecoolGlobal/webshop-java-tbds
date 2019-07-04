@@ -16,15 +16,15 @@
         <th></th>
         <th>Price</th>
     </tr>
-    <tr><form>
-        <td text="{product.name}"></td>
+    <tr th:each="item,iterStat : ${cart.getProductList()}">
+        <td th:text="${item.getName()}"></td>
+        <td><input type="submit" value="-"></td>
+        <td th:text="${quanity.get(iterStat.index)}"></td>
         <td><input type="submit" value="+"></td>
-        <td><input type="text" value="{product.quanity}"></td>
-        <td><input type="submit" value="-"></td></td>
-        <td text="{cart.price} +  USD"></td>
-    </form></tr>
-</table></div>
-<h2>Total:</h2>
+        <td th:text="${item.getPrice()}"></td>
+    </tr>
+</table>
+<h2 th:text="${total}"></h2>
 <form><input type="submit" value="Order"></form>
-</body>
+</div></body>
 </html>

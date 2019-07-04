@@ -1,10 +1,12 @@
 package com.codecool.shop.controller;
 
+import com.codecool.shop.Global;
 import com.codecool.shop.dao.ProductCategoryDao;
 import com.codecool.shop.dao.ProductDao;
 import com.codecool.shop.dao.implementation.ProductCategoryDaoMem;
 import com.codecool.shop.dao.implementation.ProductDaoMem;
 import com.codecool.shop.config.TemplateEngineUtil;
+import com.codecool.shop.model.Product;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
@@ -37,8 +39,16 @@ public class ProductController extends HttpServlet {
         // context.setVariables(params);
 
 
-        System.out.println("name:"+ req.getParameter("add") + " price: " + req.getParameter("price"));
+        if(req.getParameter("id") != null){
+            int id = Integer.parseInt(req.getParameter("id"));
+            //Global.getInstance().getActualOrder().getCart().addProductToList(Global.getInstance().getActualOrder().getCart().addProductToList(ProductDaoMem.getInstance().find(1).getProductCategory().getProducts().get(id-1));
 
+            Product product = productDataStore.find(id);
+            Global.getInstance().getActualOrder().getCart().addProductToList(product);
+            System.out.println(Global.getInstance().getActualOrder().getCart().getProductQuanity(product));
+            //Global.getInstance().getActualOrder().getCart().addProductToList(ProductDaoMem.getInstance().find(1).getProductCategory().getProducts().get(id-1));
+            //System.out.println(Global.getInstance().getActualOrder().getCart().getProductQuanity(Global.getInstance().getActualOrder().getCart().getProductList().get(0)));
+        }
         engine.process("product/index.html", context, resp.getWriter());
     }
 

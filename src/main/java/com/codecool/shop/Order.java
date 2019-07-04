@@ -36,6 +36,10 @@ public class Order {
         return totalPrice;
     }
 
+    public void setTotalPrice(BigDecimal totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
     public boolean isPayed() {
         return payed;
     }
