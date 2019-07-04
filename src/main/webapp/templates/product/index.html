@@ -34,10 +34,28 @@
     <h1>Codecool Shop</h1>
 </div>
 
-<div class="container">
+<div>
+    <form>
+        <select name="category" id="category" >
+            <option value="all">All</option>
+            <div th:each="category,iterStat : ${dropDownCategories}">
+                <option th:value="${category.getName()}" th:text="${category.getName()}"></option>
+            </div>
+        </select>
+        <select name="supplier" id="supplier">
+            <option value="all">All</option>
+            <div th:each="supplier,iterStat : ${dropDownSupplier}">
+                <option th:value="${supplier.getName()}" th:text="${supplier.getName()}"></option>
+            </div>
+        </select>
+        <input type="submit" value="Filter">
+    </form>
+</div>
+<!--<div class="container">
     <div class="card">
         <strong th:text="${category.name}">Category Title</strong>
-    </div>
+    </div>-->
+
 
     <div id="products" class="row">
         <div class="col col-sm-12 col-md-6 col-lg-4" th:each="prod,iterStat : ${products}">
@@ -61,7 +79,6 @@
     </div>
 
 </div>
-
 <div th:replace="footer.html :: copy"></div>
 
 </body>
