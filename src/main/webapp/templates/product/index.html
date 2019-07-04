@@ -36,18 +36,18 @@
 
 <div>
     <form action="/sort", method="get">
-        <select name="category" id="category">
-            <option value="default">Default</option>
-            <option value="tablet">tablet</option>
+        <select name="category" id="category" >
+            <div th:each="category,iterStat : ${dropDownCategories}">
+                <option value="default" th:text="${category.getName()}"></option>
+            </div>
         </select>
         <select name="supplier" id="supplier">
-            <option value="default">Default</option>
-            <option value="lenovo">Lenovo</option>
-            <option value="amazon">Amazon</option>
+            <div th:each="supplier,iterStat : ${dropDownSupplier}">
+                <option value="default" th:text="${supplier.getName()}"></option>
+            </div>
         </select>
         <input type="button" value="Filter">
     </form>
-
 </div>
 <!--<div class="container">
     <div class="card">
@@ -76,7 +76,6 @@
     </div>
 
 </div>
-
 <div th:replace="footer.html :: copy"></div>
 
 </body>
