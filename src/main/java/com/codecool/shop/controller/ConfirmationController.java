@@ -2,9 +2,6 @@ package com.codecool.shop.controller;
 
 import com.codecool.shop.Global;
 import com.codecool.shop.config.TemplateEngineUtil;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
@@ -17,13 +14,17 @@ import java.io.*;
 import java.util.Properties;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 
 
 
 @WebServlet(urlPatterns = {"/confirmation"})
 public class ConfirmationController extends HttpServlet {
-    private void sendEmail(){
-        System.out.println("Sent email successfully....");
+    private void sendEmail()
+    {
+
     }
 
     private void saveToJSON() {
@@ -48,7 +49,8 @@ public class ConfirmationController extends HttpServlet {
         // Write to JSON
         try (FileWriter writer = new FileWriter("staff.json")) {
             assert json != null;
-            json.getAsJsonObject().get("orders").getAsJsonArray().add(gson.toJsonTree(Global.getInstance().getActualOrder()));
+            json.getAsJsonObject().get("orders").getAsJsonArray()
+                    .add(gson.toJsonTree(Global.getInstance().getActualOrder()));
             gson.toJson(json, writer);
         } catch (IOException e) {
             e.printStackTrace();
