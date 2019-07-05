@@ -16,7 +16,7 @@ public class Order {
         this.id = counter++;
         this.date = "Today"; // todo: fix date in Constructor
         this.cart = new Cart();
-        this.totalPrice = new BigDecimal(0);
+        this.totalPrice = new BigDecimal(4);
         this.payed = false;
     }
 

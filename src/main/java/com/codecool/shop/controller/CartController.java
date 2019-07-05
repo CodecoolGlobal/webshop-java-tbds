@@ -27,12 +27,12 @@ public class CartController extends HttpServlet{
         ArrayList<Integer> quanity = Global.getInstance().getActualOrder().getCart().getQuanityList();
         context.setVariable("cart",cart);
         context.setVariable("quanity",quanity);
-        float totalPrice = 0;
+        //float totalPrice = 0;
         for (int i=0;i<Global.getInstance().getActualOrder().getCart().getProductList().size();i++){
-            totalPrice = totalPrice + (Global.getInstance().getActualOrder().getCart().getProductList().get(i).getDefaultPrice() * quanity.get(i));
+            //totalPrice = totalPrice + (Global.getInstance().getActualOrder().getCart().getProductList().get(i).getDefaultPrice() * quanity.get(i));
         }
-        context.setVariable("total",totalPrice);
-        Global.getInstance().getActualOrder().setTotalPrice(BigDecimal.valueOf(totalPrice));
+        context.setVariable("total",4);
+        //Global.getInstance().getActualOrder().setTotalPrice(BigDecimal.valueOf(totalPrice));
 
         engine.process("product/cart.html", context, response.getWriter());
 

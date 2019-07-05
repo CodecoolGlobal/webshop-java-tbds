@@ -99,7 +99,7 @@ public class ConfirmationController extends HttpServlet {
     }
     private void doTheThing() throws IOException, MessagingException { // todo: rename function name
         // create JSON file
-        saveToJSON();
+        //saveToJSON();
         // send email
         sendEmail();
     }
@@ -107,6 +107,7 @@ public class ConfirmationController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try{
             if(req.getParameter("confirmed").equals("true")){
+                System.out.println("confirmed: true");
                 doTheThing();
                 resp.sendRedirect(req.getRequestURL()+ "/vegevanLOLx0");
             }
