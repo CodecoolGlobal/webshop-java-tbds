@@ -11,19 +11,27 @@ public class UserDaoJdbc implements UserDao {
     private static final String DB_PASSWORD = "123";
 
     @Override
-    public User getUser(int id) {
-        String query = "SELECT * FROM users" +
-                "WHERE id =" + id + ";"  ;
-        return null;
+    public void getUser(String emailAddress) {
+        String query = "SELECT * FROM \"user\"" +
+                "WHERE email = '" + emailAddress + "';"  ;
+        executeQuery(query);
     }
 
     @Override
     public void updateUser(User user) {
         String query = "UPDATE  \"user\"" +
-                "SET name = 'Kalman'" +
-                "WHERE id = '" + 1 + "';";
+                "SET name = '" + user.getName() + "'" +
+                "WHERE email = '" + user.getEmailAddress() + "';";
         executeQuery(query);
     }
+
+    @Override
+    public void add(User user) {
+        String query = "INSERT INTO \"user\" (name, email) VALUES ('" + user.getName() +
+                "','" + user.getEmailAddress() + "');";
+        executeQuery(query);
+    }
+
     private Connection getConnection() throws SQLException {
         return DriverManager.getConnection(
                 DATABASE,

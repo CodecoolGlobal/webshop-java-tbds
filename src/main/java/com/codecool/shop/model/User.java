@@ -4,15 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class User {
-    private User user = null;
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     public String getName() {
         return name;
@@ -116,9 +107,8 @@ public class User {
     private List<Product> cart = new ArrayList<>();
 
 
-    public User(){ }
-
-
-
-
+    public User(String name, String emailAddress) {
+        this.name = name;
+        this.emailAddress = emailAddress;
+    }
 }

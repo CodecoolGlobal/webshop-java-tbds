@@ -17,7 +17,6 @@ public class Global {
     public static Global getInstance(){
         if(global== null){
             global = new Global();
-            user = new User();
         }
         return global;
 
