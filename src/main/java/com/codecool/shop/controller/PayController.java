@@ -3,6 +3,8 @@ package com.codecool.shop.controller;
 import com.codecool.shop.Global;
 import com.codecool.shop.dao.ProductCategoryDao;
 import com.codecool.shop.dao.ProductDao;
+import com.codecool.shop.dao.UserDao;
+import com.codecool.shop.dao.implementation.JDBC.UserDaoJdbc;
 import com.codecool.shop.dao.implementation.ProductCategoryDaoMem;
 import com.codecool.shop.dao.implementation.ProductDaoMem;
 import com.codecool.shop.config.TemplateEngineUtil;
@@ -43,6 +45,13 @@ public class PayController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         try{
             saveData(req, resp);
+
+            //
+            UserDao userDao = new UserDaoJdbc();
+            userDao.updateUser(user);
+            //
+
+
         }catch (Exception ignored){}
 
         TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(req.getServletContext());
