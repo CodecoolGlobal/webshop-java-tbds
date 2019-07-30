@@ -18,6 +18,7 @@ class UserDaoJdbcTest {
                     "SET name = 'Pista'" +
                     "WHERE id = '" + 2 + "';";
             executeQuery();
+
         });
     }
 }
