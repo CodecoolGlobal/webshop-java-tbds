@@ -39,7 +39,6 @@ public class ProductController extends HttpServlet {
         ProductCategory productCategory = null;
 
         if (categoryName != null) {
-            System.out.println(categoryName);
             productCategory = productCategoryDataStore.findByName(categoryName);
         }
 

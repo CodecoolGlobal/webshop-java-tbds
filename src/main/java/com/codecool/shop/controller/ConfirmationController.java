@@ -53,7 +53,7 @@ public class ConfirmationController extends HttpServlet {
             message.setFrom(new InternetAddress("sirosborncox@gmail.com"));
             message.setRecipients(
                     Message.RecipientType.TO,
-                    InternetAddress.parse("dbalazs1219@gmail.com")
+                    InternetAddress.parse("libardi.levente@gmail.com")
             );
             message.setSubject("Testing Gmail SSL");
             message.setText("Dear Mail Crawler,"
@@ -61,7 +61,6 @@ public class ConfirmationController extends HttpServlet {
 
             Transport.send(message);
 
-            System.out.println("Done");
 
         } catch (MessagingException e) {
             e.printStackTrace();
@@ -99,7 +98,7 @@ public class ConfirmationController extends HttpServlet {
     }
     private void doTheThing() throws IOException, MessagingException { // todo: rename function name
         // create JSON file
-        //saveToJSON();
+        saveToJSON();
         // send email
         sendEmail();
     }
@@ -107,11 +106,12 @@ public class ConfirmationController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try{
             if(req.getParameter("confirmed").equals("true")){
-                System.out.println("confirmed: true");
                 doTheThing();
                 resp.sendRedirect(req.getRequestURL()+ "/vegevanLOLx0");
             }
         }catch (Exception ignored){ }
+
+
         TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(req.getServletContext());
         WebContext context = new WebContext(req, resp, req.getServletContext());
         context.setVariable("user", Global.getInstance().getUserById());

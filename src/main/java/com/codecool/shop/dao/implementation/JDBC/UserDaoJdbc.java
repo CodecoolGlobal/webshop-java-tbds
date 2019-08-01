@@ -7,8 +7,8 @@ import java.sql.*;
 
 public class UserDaoJdbc implements UserDao {
     private static final String DATABASE = "jdbc:postgresql://localhost:5432/webshop";
-    private static final String DB_USER = "postgres";
-    private static final String DB_PASSWORD = "123";
+    private static final String DB_USER = "levente";
+    private static final String DB_PASSWORD = "Savior0505";
 
     @Override
     public void getUser(String emailAddress) {
