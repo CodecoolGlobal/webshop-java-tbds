@@ -1,35 +1,29 @@
 package com.codecool.shop.dao.implementation.JDBC;
 
-import com.codecool.shop.dao.UserDao;
 import com.codecool.shop.model.User;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
-public class UserDaoJdbc implements UserDao {
+import static org.postgresql.jdbc2.EscapedFunctions.DATABASE;
+
+public class SupplierDaoJdbc {
     private static final String DATABASE = "jdbc:postgresql://localhost:5432/webshop";
     private static final String DB_USER = "mate";
     private static final String DB_PASSWORD = "123";
 
     @Override
-    public void getUser(String emailAddress) {
-        String query = "SELECT * FROM \"user\"" +
-                "WHERE email = '" + emailAddress + "';"  ;
+    public void add() {
+        String query = "INSERT INTO \"\" (name, email) VALUES ('" +  +
+                "','" +  + "');";
         executeQuery(query);
     }
 
     @Override
-    public void updateUser(User user) {
-        String query = "UPDATE  \"user\"" +
-                "SET name = '" + user.getName() + "'" +
-                "WHERE email = '" + user.getEmailAddress() + "';";
-        executeQuery(query);
-    }
-
-    @Override
-    public void add(User user) {
-        String query = "INSERT INTO \"user\" (name, email) VALUES ('" + user.getName() +
-                "','" + user.getEmailAddress() + "');";
-        executeQuery(query);
+    public void remove(int id) {
+        String query = "DELETE FROM table WHERE " + id + " ";
     }
 
     private Connection getConnection() throws SQLException {
