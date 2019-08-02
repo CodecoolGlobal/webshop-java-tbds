@@ -12,14 +12,14 @@ public class UserDaoJdbc implements UserDao {
 
     @Override
     public void getUser(String emailAddress) {
-        String query = "SELECT * FROM \"user\"" +
+        String query = "SELECT * FROM \"users\"" +
                 "WHERE email = '" + emailAddress + "';"  ;
         executeQuery(query);
     }
 
     @Override
     public void updateUser(User user) {
-        String query = "UPDATE  \"user\"" +
+        String query = "UPDATE  \"users\"" +
                 "SET name = '" + user.getName() + "'" +
                 "WHERE email = '" + user.getEmailAddress() + "';";
         executeQuery(query);
@@ -27,7 +27,7 @@ public class UserDaoJdbc implements UserDao {
 
     @Override
     public void add(User user) {
-        String query = "INSERT INTO \"user\" (name, email) VALUES ('" + user.getName() +
+        String query = "INSERT INTO \"users\" (name, email) VALUES ('" + user.getName() +
                 "','" + user.getEmailAddress() + "');";
         executeQuery(query);
     }

@@ -2,17 +2,16 @@ package com.codecool.shop.dao.implementation.JDBC;
 
 import com.codecool.shop.dao.SupplierDao;
 import com.codecool.shop.model.Supplier;
-import com.codecool.shop.model.User;
+
 
 import java.sql.*;
 import java.util.List;
 
-import static org.postgresql.jdbc2.EscapedFunctions.DATABASE;
 
 public class SupplierDaoJdbc implements SupplierDao {
     private static final String DATABASE = "jdbc:postgresql://localhost:5432/webshop";
-    private static final String DB_USER = "mate";
-    private static final String DB_PASSWORD = "123";
+    private static final String DB_USER = "levente";
+    private static final String DB_PASSWORD = "Savior0505";
 
     @Override
     public void add(Supplier supplier) {
